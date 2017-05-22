@@ -1,0 +1,52 @@
+<md-toolbar color="primary">
+  <div class="app-title">
+    <md-icon>cloud</md-icon>
+    <span>Welcome, we are the {{ dateService?.clock | async | soldate | number:'3.1-4' }} Mars Sol Date</span>
+  </div>
+</md-toolbar>
+
+<div class="app">
+  <div class="grid-container">
+    <!-- Left -->
+    <div>
+      <div class="temperature-container">
+        <div class="panel">
+          <div class="panel-header">
+            <md-icon>whatshot</md-icon> 
+            <span>Temperature on mars</span>
+          </div>
+          <div class="panel-body">
+            <temperature></temperature>
+          </div>
+        </div>
+      </div>
+      <div class="mars-featured-container">
+        <div class="panel">
+          <div class="panel-header">
+            <md-icon>trending_up</md-icon> 
+            <span>Featured pictures</span>
+          </div>
+          <div class="panel-body">
+            <mars-featured></mars-featured>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right -->
+    <div>
+      <div class="mars-pictures-container">
+        <div class="panel">
+          <div class="panel-header">
+            <md-icon>photo_camera</md-icon> 
+            <span>Rovers pictures</span>
+          </div>
+          <div class="panel-body">
+            <mars-pictures-list></mars-pictures-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+

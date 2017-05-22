@@ -1,0 +1,68 @@
+.app {
+  background-color: #f25937;
+}
+
+.app-title {
+  display: table;
+  width: 100%;
+}
+
+.app-title > * {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.app-title > *:last-child {
+  padding-left: 12px;
+}
+
+.grid-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-container > * {
+  flex-basis: 49%;
+}
+
+.temperature-container,
+.mars-pictures-container,
+.mars-featured-container {
+  width: 100%;
+}
+
+.mars-featured-container {
+  margin-top: 20px;
+}
+
+.panel {
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: 12px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
+  position: relative;
+  color: #fff;
+  border-radius: 7px;
+}
+
+.panel .panel-header,
+.panel .panel-body {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.panel .panel-header {
+  border-bottom: 1px solid #fff;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.panel .panel-header span {
+  padding-left: 12px;
+}

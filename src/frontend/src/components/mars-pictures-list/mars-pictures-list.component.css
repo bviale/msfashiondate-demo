@@ -1,0 +1,14 @@
+.mars-pictures-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+mars-picture-card {
+    margin: 15px;
+}
+
+.load-more-container {
+    text-align: center;
+    width: 100%;
+}

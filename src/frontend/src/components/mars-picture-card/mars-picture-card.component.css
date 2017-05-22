@@ -1,0 +1,31 @@
+.mars-picture-card-picture {
+    margin: auto;
+    max-width: 300px;
+}
+
+.mars-picture-card-container {
+    cursor: pointer;
+}
+
+.spinner-container > * {
+    margin: auto;
+}
+
+.mars-picture-card-picture {
+    transition: all .8s;
+    opacity: 1;
+}
+
+.mars-picture-card-picture.hidden-img {
+    opacity: 0;
+}
+
+md-icon {
+    user-select: none;
+}
+
+.favorite-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}

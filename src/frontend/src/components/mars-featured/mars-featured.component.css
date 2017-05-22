@@ -1,0 +1,14 @@
+.mars-featured-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+mars-picture-card {
+    margin: 15px;
+}
+
+.no-favorite-message {
+    text-align: center;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}

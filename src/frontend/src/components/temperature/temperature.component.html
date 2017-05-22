@@ -1,0 +1,12 @@
+<div style="display: block;" *ngIf="dataLoaded">
+    <canvas baseChart
+                [datasets]="chartData"
+                [labels]="chartLabels"
+                [options]="chartOptions"
+                [colors]="chartColors"
+                [legend]="chartLegend"
+                [chartType]="chartType"></canvas>
+</div>
+<div class="temperature-spinner-container" *ngIf="!dataLoaded">
+    <md-spinner></md-spinner>
+</div>

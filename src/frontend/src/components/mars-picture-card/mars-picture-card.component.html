@@ -1,0 +1,19 @@
+<div class="mars-picture-card-container">
+    <md-card>
+        <md-card-header>
+            <md-card-title>
+                <span>Rover {{picture.roverName}} - Camera {{picture.cameraName}}</span>
+                <md-icon class="favorite-button" (click)="favorite()">{{picture.isFavorite ? 'star' : 'star_border'}}</md-icon>
+            </md-card-title>
+            <md-card-subtitle>{{ picture.earthDate | date: 'dd/MM/yyyy' }}</md-card-subtitle>
+            <img src="./assets/images/spirit.jpg" md-card-avatar *ngIf="picture.roverName == 'Spirit'" />
+            <img src="./assets/images/curiosity.jpg" md-card-avatar *ngIf="picture.roverName == 'Curiosity'" />
+            <img src="./assets/images/opportunity.jpg" md-card-avatar *ngIf="picture.roverName == 'Opportunity'" />
+        </md-card-header>
+
+        <img md-card-image src="{{picture.imageUrl}}" class="mars-picture-card-picture" (load)="imageLoadedEvent()" [class.hidden-img]="!imageLoaded" (click)="pictureClicked()" />
+        <div class="spinner-container">
+            <md-spinner *ngIf="!imageLoaded"></md-spinner>
+        </div>
+    </md-card>
+</div>

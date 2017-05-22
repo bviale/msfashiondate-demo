@@ -1,0 +1,8 @@
+<div class="mars-pictures-list">
+    <mars-picture-card *ngFor="let picture of marsPicturesService?.pictures | async" [picture]="picture" (onLoaded)="pictureCardLoaded(picture)">
+    </mars-picture-card>
+</div>
+
+<div class="load-more-container">
+    <button class="load-more-btn" md-raised-button color="primary" (click)="loadMore()">Load more</button>
+</div>

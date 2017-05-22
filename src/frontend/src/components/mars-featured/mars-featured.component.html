@@ -1,0 +1,7 @@
+<div class="mars-featured-list">
+    <mars-picture-card *ngFor="let picture of marsPicturesService?.favoritesPictures | async" [picture]="picture">
+    </mars-picture-card>
+</div>
+<div *ngIf="(marsPicturesService?.favoritesPictures | async).length == 0" class="no-favorite-message">
+    There is no favorite picture yet.
+</div>
