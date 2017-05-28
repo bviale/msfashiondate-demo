@@ -66,12 +66,59 @@ namespace MSFashionDateBackend.Storage
 
             await table.CreateIfNotExistsAsync();
 
-            //var query = TableOperation.Retrieve<MarsPictureModel>();
             var query = new TableQuery<MarsPictureItem>();
-
+            //query = query.Where(GenerateFilters());
             var results = await table.ExecuteQuerySegmentedAsync(query, new TableContinuationToken());
 
             return results.ToList();
+        }
+
+        private string GenerateFilters()
+        {
+            var finalFilter = string.Empty;
+            for (var i = 0; i < demoPictureId.Length; i++)
+            {
+                var filter = TableQuery.GenerateFilterConditionForInt("Id", "eq", demoPictureId[i]);
+                if (i == 0)
+                    finalFilter = filter;
+                else
+                    finalFilter = TableQuery.CombineFilters(finalFilter, "or", filter);
+            }
+
+            return finalFilter;
+        }
+
+        private int[] demoPictureId = 
+        {
+            611388, 611577, 611579, 617846, 617850, 625992, 625994, 625996, 625998, 626005, 626004, 626006, 626008, 626014, 626015, 611735, 611816, 611818, 611821, 238967, 238980
+        };
+
+        public async Task ClearMarsPictures()
+        {
+            var client = storageAccount.CreateCloudTableClient();
+            var table = client.GetTableReference(MARS_PICTURES_TABLE);
+
+            await table.CreateIfNotExistsAsync();
+
+            var pictures = await GetMarsPictures();
+
+            await table.DeleteAsync();
+            await table.CreateAsync();
+
+            var batchOperation = new TableBatchOperation();
+
+            foreach (var picture in pictures)
+            {
+                if (batchOperation.Count == 100)
+                {
+                    await table.ExecuteBatchAsync(batchOperation);
+                    batchOperation.Clear();
+                }
+
+                batchOperation.InsertOrReplace(picture);
+            }
+
+            await table.ExecuteBatchAsync(batchOperation);
         }
     }
 }

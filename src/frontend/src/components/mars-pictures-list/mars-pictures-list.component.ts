@@ -4,7 +4,7 @@ import { OnInit } from '@angular/core';
 import { MarsPicture } from '../../models/MarsPicture';
 import { PaginationOptions } from '../../models/Pagination';
 
-import { MarsPicturesService } from '../../services/mars-pictures.service'
+import { MarsPicturesService } from '../../services/mars-pictures.service';
 
 @Component({
   selector: 'mars-pictures-list',
@@ -14,7 +14,7 @@ import { MarsPicturesService } from '../../services/mars-pictures.service'
 export class MarsPicturesListComponent implements OnInit {
   
     public pageIndex: number = 0;
-    public pageSize: number = 20;
+    public pageSize: number = 8;
 
     private pictureCardsLoaded: number = 0;
 

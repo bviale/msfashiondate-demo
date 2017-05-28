@@ -42,12 +42,19 @@ namespace MSFashionDateBackend.Controllers
             _appSettings = appSettings.Value;
         }
 
-        // GET: api/values
+        [HttpDelete]
+        public async Task<string> Delete()
+        {
+            var storage = new TableStorageContainer(_appSettings.StorageConnectionString);
+            await storage.ClearMarsPictures();
+            return "OK";
+        }
+
         [HttpGet]
         public async Task<string> Get()
         {
-            var date = DateTime.Now.AddYears(-12);
-            var i = 10;
+            var date = DateTime.Now;
+            var i = 5;
             var debug = "";
 
             var storage = new TableStorageContainer(_appSettings.StorageConnectionString);
